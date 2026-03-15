@@ -40,7 +40,7 @@ export default function App() {
           name="Seasonal"
           component={SeasonalFoodScreen}
           options={{
-            tabBarLabel: 'Säsong',
+            tabBarLabel: 'Seasonal',
             tabBarIcon: ({ focused }) => (
               <Text style={{ fontSize: 24 }}>{focused ? '🌿' : '🌱'}</Text>
             ),
@@ -50,7 +50,7 @@ export default function App() {
           name="ItemScanner"
           component={ItemScannerScreen}
           options={{
-            tabBarLabel: 'Skanna',
+            tabBarLabel: 'Scanner',
             tabBarIcon: ({ focused }) => (
               <Text style={{ fontSize: 24 }}>{focused ? '📦' : '📦'}</Text>
             ),
@@ -60,7 +60,7 @@ export default function App() {
           name="ReceiptScanner"
           component={ReceiptScannerScreen}
           options={{
-            tabBarLabel: 'Kvitto',
+            tabBarLabel: 'Receipts',
             tabBarIcon: ({ focused }) => (
               <Text style={{ fontSize: 24 }}>{focused ? '🧾' : '🧾'}</Text>
             ),
@@ -70,7 +70,7 @@ export default function App() {
           name="Profile"
           component={ProfileScreen}
           options={{
-            tabBarLabel: 'Profil',
+            tabBarLabel: 'Profile',
             tabBarIcon: ({ focused }) => (
               <Text style={{ fontSize: 24 }}>{focused ? '👤' : '👤'}</Text>
             ),

@@ -3,38 +3,38 @@ import { View, Text, StyleSheet, ScrollView, Image } from 'react-native';
 
 const seasonalItems = [
     {
-        name: 'Jordgubbar',
-        season: 'Juni - Augusti',
+        name: 'Strawberries',
+        season: 'June - August',
         emoji: '🍓',
-        description: 'Svenska jordgubbar är som bäst under sommaren. Välj närproducerade för lägst klimatavtryck.',
+        description: 'Swedish strawberries are at their best during summer. Choose locally produced for the lowest carbon footprint.',
         greenPoints: 15,
     },
     {
-        name: 'Äpplen',
+        name: 'Apples',
         season: 'September - November',
         emoji: '🍎',
-        description: 'Svenska äpplen skördas på hösten. Perfekt för paj och must!',
+        description: 'Swedish apples are harvested in the autumn. Perfect for pies and cider!',
         greenPoints: 12,
     },
     {
-        name: 'Morötter',
-        season: 'Året runt (svensk)',
+        name: 'Carrots',
+        season: 'Year-round (Swedish)',
         emoji: '🥕',
-        description: 'Morötter odlas i Sverige och lagras bra. Bra val året runt.',
+        description: 'Carrots are grown in Sweden and store well. A great choice all year round.',
         greenPoints: 10,
     },
     {
-        name: 'Grönkål',
-        season: 'Oktober - Mars',
+        name: 'Kale',
+        season: 'October - March',
         emoji: '🥬',
-        description: 'Grönkål tål frost och blir till och med sötare efter frost. Supertillgängligt på vintern.',
+        description: 'Kale tolerates frost and even gets sweeter after a frost. Super accessible in winter.',
         greenPoints: 14,
     },
     {
-        name: 'Rabarber',
-        season: 'Maj - Juli',
+        name: 'Rhubarb',
+        season: 'May - July',
         emoji: '🌿',
-        description: 'Rabarber är en klassisk svensk trädgårdsväxt. Perfekt till paj och sylt.',
+        description: 'Rhubarb is a classic Swedish garden plant. Perfect for pies and jam.',
         greenPoints: 13,
     },
 ];
@@ -42,8 +42,8 @@ const seasonalItems = [
 export default function SeasonalFoodScreen() {
     return (
         <ScrollView style={styles.container}>
-            <Text style={styles.header}>🌿 Säsongens Bästa</Text>
-            <Text style={styles.subtitle}>Välj säsongsbetonat för lägre klimatavtryck</Text>
+            <Text style={styles.header}>🌿 Season's Best</Text>
+            <Text style={styles.subtitle}>Choose seasonal foods for a lower carbon footprint</Text>
 
             {seasonalItems.map((item, index) => (
                 <View key={index} style={styles.card}>
@@ -55,7 +55,7 @@ export default function SeasonalFoodScreen() {
                         </View>
                         <View style={styles.pointsBadge}>
                             <Text style={styles.pointsText}>+{item.greenPoints}</Text>
-                            <Text style={styles.pointsLabel}>poäng</Text>
+                            <Text style={styles.pointsLabel}>points</Text>
                         </View>
                     </View>
                     <Text style={styles.description}>{item.description}</Text>

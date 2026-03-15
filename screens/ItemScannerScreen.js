@@ -3,28 +3,28 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-nati
 
 // Hardcoded product data - always shows "Kex" (cookies) info
 const HARDCODED_PRODUCT = {
-    name: 'Pågen Kex Digestive',
+    name: 'Pågen Digestive Cookies',
     barcode: '7311070000123',
     brand: 'Pågen',
-    category: 'Kex & Kakor',
-    origin: 'Sverige',
-    carbonFootprint: 'Låg',
+    category: 'Cookies & Biscuits',
+    origin: 'Sweden',
+    carbonFootprint: 'Low',
     carbonKg: '0.8 kg CO₂e / kg',
-    packaging: 'Kartong (återvinningsbar)',
-    certifications: ['KRAV', 'Svenskt Sigill'],
+    packaging: 'Cardboard (recyclable)',
+    certifications: ['KRAV', 'Swedish Seal'],
     sustainabilityScore: 4, // out of 5
     greenPoints: 20,
     nutritionPer100g: {
-        energi: '460 kcal',
-        fett: '18g',
-        kolhydrater: '65g',
+        energy: '460 kcal',
+        fat: '18g',
+        carbohydrates: '65g',
         protein: '7g',
         fiber: '5g',
     },
-    tips: 'Digestive-kex med fullkorn är ett bra val! Välj helst ekologiskt och KRAV-märkt.',
+    tips: 'Digestive cookies with whole grains are a good choice! Preferably choose organic and KRAV-certified.',
     alternatives: [
-        { name: 'Wasa Knäckebröd', score: 5, reason: 'Lägre CO₂, mer fiber' },
-        { name: 'ICA Havrekex', score: 4, reason: 'Liknande, lokalt producerat' },
+        { name: 'Wasa Crispbread', score: 5, reason: 'Lower CO₂, more fiber' },
+        { name: 'ICA Oat Cookies', score: 4, reason: 'Similar, locally produced' },
     ],
 };
 
@@ -42,8 +42,8 @@ export default function ItemScannerScreen() {
     if (!scanned) {
         return (
             <View style={styles.scanContainer}>
-                <Text style={styles.header}>📦 Skanna Produkt</Text>
-                <Text style={styles.subtitle}>Skanna en streckkod för att se produktens miljöpåverkan</Text>
+                <Text style={styles.header}>📦 Scan Product</Text>
+                <Text style={styles.subtitle}>Scan a barcode to see the product's environmental impact</Text>
 
                 <View style={styles.scanPreview}>
                     <View style={styles.scanFrame}>
@@ -52,12 +52,12 @@ export default function ItemScannerScreen() {
                         <View style={[styles.corner, styles.bottomLeft]} />
                         <View style={[styles.corner, styles.bottomRight]} />
                         <Text style={styles.scanText}>📷</Text>
-                        <Text style={styles.scanLabel}>Kameran är inte tillgänglig</Text>
+                        <Text style={styles.scanLabel}>Camera is not available</Text>
                     </View>
                 </View>
 
                 <TouchableOpacity style={styles.scanButton} onPress={handleScan}>
-                    <Text style={styles.scanButtonText}>🔍 Simulera Skanning (Kex)</Text>
+                    <Text style={styles.scanButtonText}>🔍 Simulate Scan (Cookies)</Text>
                 </TouchableOpacity>
             </View>
         );
@@ -78,42 +78,42 @@ export default function ItemScannerScreen() {
             </View>
 
             <View style={styles.card}>
-                <Text style={styles.cardTitle}>🌍 Hållbarhetsbetyg</Text>
+                <Text style={styles.cardTitle}>🌍 Sustainability Rating</Text>
                 <Text style={styles.stars}>{stars}</Text>
-                <Text style={styles.footprint}>CO₂-avtryck: {product.carbonKg}</Text>
+                <Text style={styles.footprint}>CO₂ Footprint: {product.carbonKg}</Text>
                 <View style={[styles.footprintBadge, { backgroundColor: '#e8f5e9' }]}>
                     <Text style={[styles.footprintBadgeText, { color: '#2e7d32' }]}>
-                        {product.carbonFootprint} klimatpåverkan
+                        {product.carbonFootprint} climate impact
                     </Text>
                 </View>
             </View>
 
             <View style={styles.card}>
-                <Text style={styles.cardTitle}>📋 Produktinfo</Text>
+                <Text style={styles.cardTitle}>📋 Product Info</Text>
                 <View style={styles.infoRow}>
-                    <Text style={styles.infoLabel}>Kategori</Text>
+                    <Text style={styles.infoLabel}>Category</Text>
                     <Text style={styles.infoValue}>{product.category}</Text>
                 </View>
                 <View style={styles.infoRow}>
-                    <Text style={styles.infoLabel}>Ursprung</Text>
+                    <Text style={styles.infoLabel}>Origin</Text>
                     <Text style={styles.infoValue}>{product.origin} 🇸🇪</Text>
                 </View>
                 <View style={styles.infoRow}>
-                    <Text style={styles.infoLabel}>Förpackning</Text>
+                    <Text style={styles.infoLabel}>Packaging</Text>
                     <Text style={styles.infoValue}>{product.packaging}</Text>
                 </View>
                 <View style={styles.infoRow}>
-                    <Text style={styles.infoLabel}>Certifieringar</Text>
+                    <Text style={styles.infoLabel}>Certifications</Text>
                     <Text style={styles.infoValue}>{product.certifications.join(', ')}</Text>
                 </View>
                 <View style={styles.infoRow}>
-                    <Text style={styles.infoLabel}>Streckkod</Text>
+                    <Text style={styles.infoLabel}>Barcode</Text>
                     <Text style={styles.infoValue}>{product.barcode}</Text>
                 </View>
             </View>
 
             <View style={styles.card}>
-                <Text style={styles.cardTitle}>🥗 Näringsvärde per 100g</Text>
+                <Text style={styles.cardTitle}>🥗 Nutrition per 100g</Text>
                 {Object.entries(product.nutritionPer100g).map(([key, value]) => (
                     <View key={key} style={styles.infoRow}>
                         <Text style={styles.infoLabel}>{key.charAt(0).toUpperCase() + key.slice(1)}</Text>
@@ -128,7 +128,7 @@ export default function ItemScannerScreen() {
             </View>
 
             <View style={styles.card}>
-                <Text style={styles.cardTitle}>🔄 Grönare Alternativ</Text>
+                <Text style={styles.cardTitle}>🔄 Greener Alternatives</Text>
                 {product.alternatives.map((alt, index) => (
                     <View key={index} style={styles.altItem}>
                         <View style={styles.altHeader}>
@@ -141,7 +141,7 @@ export default function ItemScannerScreen() {
             </View>
 
             <TouchableOpacity style={styles.resetButton} onPress={handleReset}>
-                <Text style={styles.resetButtonText}>🔄 Skanna Igen</Text>
+                <Text style={styles.resetButtonText}>🔄 Scan Again</Text>
             </TouchableOpacity>
 
             <View style={{ height: 40 }} />

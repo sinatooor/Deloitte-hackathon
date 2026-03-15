@@ -7,22 +7,22 @@ const USER_PROFILE = {
     currentLevel: 'Eco Warrior 🌿',
     nextLevel: 'Eco Champion 🏆',
     nextLevelThreshold: 2000,
-    memberSince: 'Januari 2026',
+    memberSince: 'January 2026',
     totalScans: 87,
     Co2Saved: '24.5 kg',
     streakDays: 12,
     badges: [
-        { emoji: '🌱', name: 'Nybörjare', earned: true },
-        { emoji: '♻️', name: 'Återvinnare', earned: true },
-        { emoji: '🥬', name: 'Veggie-vecka', earned: true },
+        { emoji: '🌱', name: 'Beginner', earned: true },
+        { emoji: '♻️', name: 'Recycler', earned: true },
+        { emoji: '🥬', name: 'Veggie Week', earned: true },
         { emoji: '🏆', name: 'Champion', earned: false },
-        { emoji: '🌍', name: 'Världsförbättrare', earned: false },
+        { emoji: '🌍', name: 'World Saver', earned: false },
     ],
     recentActivity: [
-        { date: '14 mars', action: 'Skannade kvitto', points: 35 },
-        { date: '13 mars', action: 'Skannade Kex Digestive', points: 20 },
-        { date: '12 mars', action: 'Valde säsongsprodukt', points: 15 },
-        { date: '11 mars', action: 'Skannade kvitto', points: 28 },
+        { date: 'March 14', action: 'Scanned receipt', points: 35 },
+        { date: 'March 13', action: 'Scanned Digestive Cookies', points: 20 },
+        { date: 'March 12', action: 'Chose seasonal product', points: 15 },
+        { date: 'March 11', action: 'Scanned receipt', points: 28 },
     ],
 };
 
@@ -37,7 +37,7 @@ export default function ProfileScreen() {
                 </View>
                 <Text style={styles.userName}>{USER_PROFILE.name}</Text>
                 <Text style={styles.level}>{USER_PROFILE.currentLevel}</Text>
-                <Text style={styles.memberSince}>Medlem sedan {USER_PROFILE.memberSince}</Text>
+                <Text style={styles.memberSince}>Member since {USER_PROFILE.memberSince}</Text>
             </View>
 
             {/* Green Points with progress */}
@@ -49,7 +49,7 @@ export default function ProfileScreen() {
                         <View style={[styles.progressFill, { width: `${progress * 100}%` }]} />
                     </View>
                     <Text style={styles.progressText}>
-                        {USER_PROFILE.greenPoints} / {USER_PROFILE.nextLevelThreshold} till {USER_PROFILE.nextLevel}
+                        {USER_PROFILE.greenPoints} / {USER_PROFILE.nextLevelThreshold} to {USER_PROFILE.nextLevel}
                     </Text>
                 </View>
             </View>
@@ -58,15 +58,15 @@ export default function ProfileScreen() {
             <View style={styles.statsRow}>
                 <View style={styles.statCard}>
                     <Text style={styles.statValue}>{USER_PROFILE.totalScans}</Text>
-                    <Text style={styles.statLabel}>Skanningar</Text>
+                    <Text style={styles.statLabel}>Scans</Text>
                 </View>
                 <View style={styles.statCard}>
                     <Text style={styles.statValue}>{USER_PROFILE.Co2Saved}</Text>
-                    <Text style={styles.statLabel}>CO₂ sparat</Text>
+                    <Text style={styles.statLabel}>CO₂ Saved</Text>
                 </View>
                 <View style={styles.statCard}>
                     <Text style={styles.statValue}>{USER_PROFILE.streakDays} 🔥</Text>
-                    <Text style={styles.statLabel}>Dagars streak</Text>
+                    <Text style={styles.statLabel}>Day Streak</Text>
                 </View>
             </View>
 
@@ -90,7 +90,7 @@ export default function ProfileScreen() {
 
             {/* Recent Activity */}
             <View style={styles.card}>
-                <Text style={styles.cardTitle}>📊 Senaste Aktivitet</Text>
+                <Text style={styles.cardTitle}>📊 Recent Activity</Text>
                 {USER_PROFILE.recentActivity.map((activity, index) => (
                     <View key={index} style={styles.activityRow}>
                         <View>

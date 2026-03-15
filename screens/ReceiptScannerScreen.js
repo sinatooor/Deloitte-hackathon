@@ -5,11 +5,11 @@ const HARDCODED_RECEIPT = {
     store: 'ICA Maxi',
     date: '2026-03-14',
     items: [
-        { name: 'Pågen Kex Digestive', price: 29.90, greenScore: 4, co2: '0.8 kg' },
-        { name: 'Arla Ekologisk Mjölk 1L', price: 18.50, greenScore: 3, co2: '1.2 kg' },
-        { name: 'Svenska Äpplen 1kg', price: 34.90, greenScore: 5, co2: '0.3 kg' },
-        { name: 'Oatly Havredryck', price: 22.90, greenScore: 5, co2: '0.4 kg' },
-        { name: 'Pågen Limpa', price: 32.90, greenScore: 4, co2: '0.6 kg' },
+        { name: 'Pågen Digestive Cookies', price: 29.90, greenScore: 4, co2: '0.8 kg' },
+        { name: 'Arla Organic Milk 1L', price: 18.50, greenScore: 3, co2: '1.2 kg' },
+        { name: 'Swedish Apples 1kg', price: 34.90, greenScore: 5, co2: '0.3 kg' },
+        { name: 'Oatly Oat Drink', price: 22.90, greenScore: 5, co2: '0.4 kg' },
+        { name: 'Pågen Loaf Bread', price: 32.90, greenScore: 4, co2: '0.6 kg' },
     ],
     totalGreenPoints: 35,
 };
@@ -28,24 +28,24 @@ export default function ReceiptScannerScreen() {
     };
 
     const getScoreLabel = (score) => {
-        if (score >= 4) return 'Bra val! ✅';
-        if (score >= 3) return 'OK val 🟡';
-        return 'Kan förbättras 🔴';
+        if (score >= 4) return 'Good choice! ✅';
+        if (score >= 3) return 'OK choice 🟡';
+        return 'Needs improvement 🔴';
     };
 
     if (!scanned) {
         return (
             <View style={styles.scanContainer}>
-                <Text style={styles.header}>🧾 Skanna Kvitto</Text>
-                <Text style={styles.subtitle}>Skanna ditt kvitto för att se din handlings miljöpåverkan</Text>
+                <Text style={styles.header}>🧾 Scan Receipt</Text>
+                <Text style={styles.subtitle}>Scan your receipt to see the environmental impact of your shopping</Text>
 
                 <View style={styles.receiptIcon}>
                     <Text style={styles.receiptEmoji}>🧾</Text>
-                    <Text style={styles.receiptLabel}>Kameran är inte tillgänglig</Text>
+                    <Text style={styles.receiptLabel}>Camera is not available</Text>
                 </View>
 
                 <TouchableOpacity style={styles.scanButton} onPress={handleScan}>
-                    <Text style={styles.scanButtonText}>📸 Simulera Kvittoskanning</Text>
+                    <Text style={styles.scanButtonText}>📸 Simulate Receipt Scan</Text>
                 </TouchableOpacity>
             </View>
         );
@@ -72,15 +72,15 @@ export default function ReceiptScannerScreen() {
                 </View>
                 <View style={styles.summaryCard}>
                     <Text style={styles.summaryValue}>{avgScore}/5</Text>
-                    <Text style={styles.summaryLabel}>Snittbetyg</Text>
+                    <Text style={styles.summaryLabel}>Avg Score</Text>
                 </View>
                 <View style={styles.summaryCard}>
                     <Text style={styles.summaryValue}>{HARDCODED_RECEIPT.items.length}</Text>
-                    <Text style={styles.summaryLabel}>Varor</Text>
+                    <Text style={styles.summaryLabel}>Items</Text>
                 </View>
             </View>
 
-            <Text style={styles.sectionTitle}>Alla varor</Text>
+            <Text style={styles.sectionTitle}>All Items</Text>
 
             {HARDCODED_RECEIPT.items.map((item, index) => (
                 <View key={index} style={styles.itemCard}>
@@ -100,7 +100,7 @@ export default function ReceiptScannerScreen() {
             ))}
 
             <TouchableOpacity style={styles.resetButton} onPress={() => setScanned(false)}>
-                <Text style={styles.resetButtonText}>🔄 Skanna Nytt Kvitto</Text>
+                <Text style={styles.resetButtonText}>🔄 Scan New Receipt</Text>
             </TouchableOpacity>
 
             <View style={{ height: 40 }} />
