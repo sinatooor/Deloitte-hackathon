@@ -21,6 +21,7 @@ const HARDCODED_PRODUCT = {
         protein: '7g',
         fiber: '5g',
     },
+    aiSummary: "✨ AI Insight: These cookies are baked in Sweden, keeping transport emissions low. While the main ingredient (wheat) is out of season in March, it is efficiently stored over winter with minimal energy impact. The KRAV seal ensures high standards for soil health and biodiversity.",
     tips: 'Digestive cookies with whole grains are a good choice! Preferably choose organic and KRAV-certified.',
     alternatives: [
         { name: 'Wasa Crispbread', score: 5, reason: 'Lower CO₂, more fiber' },
@@ -75,6 +76,11 @@ export default function ItemScannerScreen() {
                 <View style={styles.pointsEarned}>
                     <Text style={styles.pointsEarnedText}>+{product.greenPoints} Green Points! 🎉</Text>
                 </View>
+            </View>
+
+            <View style={[styles.card, styles.aiCard]}>
+                <Text style={styles.cardTitle}>🤖 AI Sustainability Analysis</Text>
+                <Text style={styles.aiText}>{product.aiSummary}</Text>
             </View>
 
             <View style={styles.card}>
@@ -296,6 +302,17 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         color: '#1a1a1a',
         marginBottom: 12,
+    },
+    aiCard: {
+        backgroundColor: '#e3f2fd', // Light blue to indicate AI/Smart
+        borderColor: '#bbdefb',
+        borderWidth: 1,
+    },
+    aiText: {
+        fontSize: 15,
+        color: '#333',
+        lineHeight: 22,
+        fontStyle: 'italic',
     },
     stars: {
         fontSize: 24,
