@@ -5,7 +5,7 @@ const USER_PROFILE = {
     name: 'Anna Svensson',
     greenPoints: 1250,
     currentLevel: 'Eco Warrior 🌿',
-    nextLevel: 'Eco Champion 🏆',
+    nextLevel: 'Free Oatly Mug Set ☕️',
     nextLevelThreshold: 2000,
     memberSince: 'January 2026',
     totalScans: 87,
